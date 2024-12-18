@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>☽Templo espiritual hermanos en la fe☾</title>
+    <link rel="icon" href="assets/img/logoH.png" type="image/x-icon">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+
+    <style>
+        #header {
+            background-color: #1c2833;
+        }
+    
+        .team .pic img {
+            width: 100%;
+            height: 100%; /* Asegura que la imagen llene el espacio */
+            object-fit: cover; /* Ajusta la imagen para que cubra el espacio sin distorsionarse */
+            background-color: #f0f0f0;
+        }
+    
+        .team .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between; /* Alinea las columnas correctamente */
+        }
+    
+        .team .col-lg-4,
+        .team .col-md-6 {
+            flex: 1 1 30%;
+            max-width: 30%;
+            padding: 0;
+        }
+    
+        .team .container {
+            padding: 50px 0;
+        }
+    
+        /* Asegura que las cards sean del mismo tamaño */
+        .team .col-lg-4,
+        .team .col-md-6 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Esto alinea el contenido de la card */
+        }
+    
+        .card {
+            height: 100%; /* Asegura que las cards tengan el mismo tamaño */
+        }
+    
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+    
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
+    
+        .social-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+    
+        .social-icon-container {
+            display: inline-block;
+            margin: 15px;
+        }
+    
+        .social-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #343a40;
+            margin-bottom: 30px;
+        }
+    
+        .redes {
+            padding: 60px 0;
+        }
+    
+        .social-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+    
+        .social-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ffcc00;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+    
+        .social-icon-container {
+            display: inline-block;
+            margin: 20px;
+            transition: transform 0.3s ease;
+        }
+    
+        .social-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+    
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
+    
+        .info-text {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #1c2833;
+            margin-top: 30px;
+        }
+    
+        /* Estilos para la animación de humo */
+        #smoke-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            overflow: hidden;
+        }
+    
+        .smoke-particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+        }
+    
+        .header {
+            background-color: #1c2833;
+            padding: 10px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+    
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+    
+        .sitename {
+            color: #f0c13b;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0;
+            font-family: 'Georgia', serif;
+        }
+    
+        .navmenu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+    
+        .navmenu ul li a {
+            color: #f0c13b;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+    
+        .navmenu ul li a:hover {
+            color: #ffdf7e;
+            transform: scale(1.1);
+        }
+    
+        /* Mobile navigation toggle */
+        .mobile-nav-toggle {
+            display: none;
+            font-size: 1.8rem;
+            color: #f0c13b;
+            cursor: pointer;
+        }
+    
+        @media (max-width: 992px) {
+            .navmenu ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background: #1c2833;
+                width: 100%;
+                padding: 20px 0;
+            }
+    
+            .navmenu ul.active {
+                display: flex;
+            }
+    
+            .mobile-nav-toggle {
+                display: block;
+            }
+        }
+    
+        /* Responsive team images */
+        .team .pic img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    
+        /* Responsive grid for team members */
+        .team .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+    
+        .team .col-lg-4,
+        .team .col-md-6 {
+            flex: 1 1 100%;
+            max-width: 100%;
+        }
+    
+        @media (min-width: 768px) {
+            .team .col-md-6 {
+                flex: 1 1 48%;
+                max-width: 48%;
+            }
+        }
+    
+        @media (min-width: 992px) {
+            .team .col-lg-4 {
+                flex: 1 1 30%;
+                max-width: 30%;
+            }
+        }
+    
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+    
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
+    
+        .social-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ffcc00;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        /* Estilos para la sección de Pablo Wiccano */
+.pablo-section {
+    background-color: #f0f0f0;
+    padding: 60px 0;
+    color: #333;
+    text-align: center;
+}
+
+.pablo-img {
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.pablo-img:hover {
+    transform: scale(1.05);
+}
+
+.pablo-title {
+    font-size: 2.5rem;
+    color: #f0c13b;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.pablo-info {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #555;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .pablo-title {
+        font-size: 2rem;
+    }
+
+    .pablo-info {
+        font-size: 1rem;
+    }
+
+    .pablo-img {
+        width: 200px;
+        height: 200px;
+    }
+}
+/* Estilos para la sección "Cómo Trabajamos" */
+.trabajo-section {
+    background-color: #232323;
+    padding: 60px 0;
+    color: #fff;
+    text-align: center;
+}
+
+.trabajo-title {
+    font-size: 2.5rem;
+    color: #f0c13b;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.trabajo-info {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #ccc;
+}
+
+.trabajo-img {
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    margin-top: 30px;
+}
+
+.trabajo-img:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .trabajo-title {
+        font-size: 2rem;
+    }
+
+    .trabajo-info {
+        font-size: 1rem;
+    }
+
+    .trabajo-img {
+        margin-top: 15px;
+    }
+}
+
+    </style>
+    
+
+    <!-- Anime.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+
+<body>
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="container-fluid d-flex align-items-center justify-content-between">
+            <a href="index.html" class="logo d-flex align-items-center">
+                <img src="assets/img/logoH.png" alt="Logo">
+                <h2 class="sitename">☽ Templo espiritual Hermanos en la fe</h2>
+            </a>
+
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="#inicio" class="active">Inicios Místicos</a></li>
+                    <li><a href="#cartas">Cartas Tarot</a></li>
+                    <li><a href="#productos">Nuestros productos</a></li>
+                    
+                    <li><a href="#trabajos">Trabajos</a></li>
+                    <li><a href="#pablo-wiccano">Pablo Wiccano</a></li>
+                    <li><a href="#Nosotros">Nosotros</a></li>
+                </ul>
+                <i class="mobile-nav-toggle bi bi-list"></i>
+            </nav>
+        </div>
+    </header>
+   
+
+    <!-- Contenedor para las partículas de humo -->
+    <div id="smoke-container"></div>
+
+
+    <main class="main">
+
+        <!-- Hero Section -->
+        <section id="inicio" class="hero section dark-background">
+    <img src="assets/img/hero-bg-2.jpg" alt="" class="hero-bg">
+
+    <div class="container">
+        <div class="row gy-4 justify-content-between">
+            <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-in">
+                <h1 class="hero-title">Descubre el Poder del Esoterismo: Conecta con lo Desconocido</h1>
+                <p class="hero-text">Adéntrate en un mundo místico donde lo oculto cobra vida. Explora el tarot, la astrología y el poder de los cristales mientras conectas con tu ser interior. Ya seas principiante o experto, aquí encontrarás recursos que enriquecerán tu viaje espiritual. ¡Despierta el sabio que llevas dentro!</p>
+                
+                <!-- Consulta Gratis con Flecha -->
+                <div class="consulta-container">
+                    
+                    <a href="#social" class="scroll-to-social">
+                        <i class="fas fa-arrow-down" style="font-size: 2rem; color: #f0c13b;"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-last hero-img" data-aos="zoom-out" data-aos-delay="100">
+                <img src="assets/img/principal.jpeg" class="img-fluid animated" alt="">
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección Redes Sociales -->
+    <div class="container" id="social" style="text-align: center; margin-top: 50px;">
+        <h2 class="social-title">Conecta con el Mundo Esotérico</h2>
+
+        <!-- Redes Sociales -->
+        <p class="consulta-text">¡Consulta Gratis! Conéctate Ahora</p>
+        <div class="social-container">
+            <div class="social-icon-container">
+                <a href="https://www.facebook.com/share/18Uy7yZJRy/" target="_blank" class="social-icon-link">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" class="social-icon">
+                </a>
+            </div>
+            <div class="social-icon-container">
+                <a href="https://wa.link/g4twsh" target="_blank" class="social-icon-link">
+                    <img src="icons/whatsapp.png" alt="WhatsApp" class="social-icon">
+                </a>
+            </div>
+            <div class="social-icon-container">
+                <a href="https://www.instagram.com/" target="_blank" class="social-icon-link">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="social-icon">
+                </a>
+            </div>
+        </div>
+
+        <!-- Información adicional sobre esoterismo -->
+        <div class="info-text">
+            <p>Las redes sociales son una excelente manera de adentrarse más en el fascinante mundo del esoterismo, el tarot, la astrología y más. ¡Síguenos en nuestras redes para obtener consejos, lecturas gratuitas, predicciones astrológicas y mucho más!</p>
+            <p>Sumérgete en el misterio del universo, descubre secretos que han sido revelados solo a aquellos que se atreven a explorar las energías ocultas y las vibraciones cósmicas.</p>
+        </div>
+    </div>
+</section>
+
+
+        <!-- About Section -->
+        <section id="cartas" class="about section" style="background-color: #2e4053;">
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="row align-items-xl-center gy-5">
+
+                    <div class="col-xl-5 content">
+                        <h1 style="color: #f0c13b;">Explora los Misterios del Cosmos
+                        </h1>
+                        <br>
+                        <p style="color:white">Sumérgete en las energías cósmicas y descubre cómo pueden influir en tu
+                            vida.
+                            Conecta con el universo y las fuerzas invisibles que guían tu destino.</p>
+                        <br>
+                        <div class="space-y-4 text-white">
+                            <div class="flex items-center"><i class="fas fa-map-marker-alt text-yellow-500 mr-3"></i>
+                                Costa
+                                Rica</div>
+                            <div class="flex items-center"><i class="fas fa-envelope text-yellow-500 mr-3"></i>
+                                <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                    data-cfemail="5723323a273b3833323a36303e362e2436353e3322253e3617303a363e3b7934383a">[email&#160;protected]</a>
+                            </div>
+                            <div class="flex items-center"><i class="fas fa-phone-alt text-yellow-500 mr-3"></i> (+012)
+                                3456
+                                7890</div>
+                            <div class="flex items-center"><i class="fab fa-firefox-browser text-yellow-500 mr-3"></i>
+                                www.templo.com</div>
+                        </div>
+                        <div class="mt-6 flex space-x-3">
+                            <a href="#" class="text-yellow-500 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="text-yellow-500 hover:text-white"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-yellow-500 hover:text-white"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-yellow-500 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+
+                    </div>
+
+                    <div class="col-xl-7">
+                        <div class="row gy-4 icon-boxes">
+
+                            <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                                <div class="icon-box"
+                                    style="background-color: #2a3b4c; color: white; padding: 20px; border-radius: 8px;">
+                                    <i class="bi bi-magic" style="color: yellow;"></i>
+                                    <h3 style="color: #f0c13b;">Mago</h3>
+                                    <p>Representa poder, habilidad y acción. Indica que tienes las herramientas
+                                        necesarias para manifestar tus deseos.</p>
+                                </div>
+                            </div> <!-- End Icon Box -->
+
+                            <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                                <div class="icon-box"
+                                    style="background-color: #2a3b4c; color: white; padding: 20px; border-radius: 8px;">
+                                    <i class="bi bi-chevron-contract" style="color: yellow;"></i>
+                                    <h3 style="color: #f0c13b;">La Sacerdotisa</h3>
+                                    <p>Simboliza la intuición, el conocimiento oculto y el misterio. Te invita a
+                                        escuchar tu voz interior. </p>
+                                </div>
+                            </div> <!-- End Icon Box -->
+
+                            <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                                <div class="icon-box"
+                                    style="background-color: #2a3b4c; color: white; padding: 20px; border-radius: 8px;">
+                                    <i class="bi bi-brilliance" style="color: yellow;"></i>
+                                    <h3 style="color: #f0c13b;">La Emperatriz</h3>
+                                    <p>Representa la abundancia, la fertilidad y la creatividad. Es un símbolo de
+                                        crecimiento y prosperidad.</p>
+                                </div>
+                            </div> <!-- End Icon Box -->
+
+                            <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+                                <div class="icon-box"
+                                    style="background-color: #2a3b4c; color: white; padding: 20px; border-radius: 8px;">
+                                    <i class="bi bi-brightness-low-fill" style="color: yellow;"></i>
+                                    <h3 style="color: #f0c13b;">El Sol</h3>
+                                    <p>Simboliza la alegría, la vitalidad y el éxito. Una carta positiva que representa
+                                        un futuro brillante.</p>
+                                </div>
+                            </div> <!-- End Icon Box -->
+
+                            <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+                                <div class="icon-box"
+                                    style="background-color: #2a3b4c; color: white; padding: 20px; border-radius: 8px;">
+                                    <i class="bi bi-moon-stars-fill" style="color: yellow;"></i>
+                                    <h3 style="color: #f0c13b;">La Luna</h3>
+                                    <p>Simboliza la intuición, los sueños y el subconsciente. Representa los misterios
+                                        ocultos y las emociones profundas que influyen en nuestras vidas.</p>
+                                </div>
+                            </div> <!-- End Icon Box -->
+
+                            <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+                                <div class="icon-box"
+                                    style="background-color: #2a3b4c; color: white; padding: 20px; border-radius: 8px;">
+                                    <i class="bi bi-bank" style="color: yellow;"></i>
+                                    <h3 style="color: #f0c13b;">El Juicio</h3>
+                                    <p>Simboliza la renovación, la reflexión y el despertar espiritual. Es un llamado a
+                                        la autoevaluación.</p>
+                                </div>
+                            </div> <!-- End Icon Box -->
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </section><!-- /About Section -->
+
+<!-- Team Section -->
+<section id="productos" class="team section bg-dark text-white py-5">
+
+    <!-- Section Title -->
+    <div class="container section-title text-center mb-5" data-aos="fade-up">
+      
+
+        <p class="lead mb-0">Nuestros Servicios Mira lo que tenemos <span class="text-primary">para ti</span></p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+        <div class="row gy-5 justify-content-center">
+
+            <!-- Service 1 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-card bg-light text-center shadow rounded overflow-hidden d-flex flex-column">
+                    <div class="pic mb-4"><img src="assets/img/amor.jpeg" class="img-fluid w-100 h-100 object-cover" alt="Trabajos de amor"></div>
+                    <div class="service-info p-4 flex-grow-1">
+                        <h4 class="text-primary font-weight-bold">Trabajos de amor</h4>
+                        <span class="d-block fs-1 mb-3">♥♥</span>
+                        <p class="text-muted">Conecta con tu ser querido a través de rituales especiales.</p>
+                    </div>
+                </div>
+            </div><!-- End Service 1 -->
+
+            <!-- Service 2 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-card bg-light text-center shadow rounded overflow-hidden d-flex flex-column">
+                    <div class="pic mb-4"><img src="assets/img/proteccion.jpeg" class="img-fluid w-100 h-100 object-cover" alt="Protección y limpieza energética"></div>
+                    <div class="service-info p-4 flex-grow-1">
+                        <h4 class="text-primary font-weight-bold">Protección y Limpieza Energética</h4>
+                        <span class="d-block fs-1 mb-3">🔒</span>
+                        <p class="text-muted">Elimina las malas vibras y renueva tu energía positiva.</p>
+                    </div>
+                </div>
+            </div><!-- End Service 2 -->
+
+            <!-- Service 3 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-card bg-light text-center shadow rounded overflow-hidden d-flex flex-column">
+                    <div class="pic mb-4"><img src="assets/img/pareja.jpeg" class="img-fluid w-100 h-100 object-cover" alt="Recuperaciones de Pareja"></div>
+                    <div class="service-info p-4 flex-grow-1">
+                        <h4 class="text-primary font-weight-bold">Recuperaciones de Pareja</h4>
+                        <span class="d-block fs-1 mb-3">💑</span>
+                        <p class="text-muted">Recupera el amor y la conexión con tu pareja.</p>
+                    </div>
+                </div>
+            </div><!-- End Service 3 -->
+
+            <!-- Service 4 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="service-card bg-light text-center shadow rounded overflow-hidden d-flex flex-column">
+                    <div class="pic mb-4"><img src="assets/img/blanca.jpeg" class="img-fluid w-100 h-100 object-cover" alt="Salud y Bienestar"></div>
+                    <div class="service-info p-4 flex-grow-1">
+                        <h4 class="text-primary font-weight-bold">Salud y Bienestar</h4>
+                        <span class="d-block fs-1 mb-3">🩺</span>
+                        <p class="text-muted">Mejora tu salud física y mental con nuestras prácticas.</p>
+                    </div>
+                </div>
+            </div><!-- End Service 4 -->
+
+            <!-- Service 5 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="service-card bg-light text-center shadow rounded overflow-hidden d-flex flex-column">
+                    <div class="pic mb-4"><img src="assets/img/image.png" class="img-fluid w-100 h-100 object-cover" alt="Maheeso"></div>
+                    <div class="service-info p-4 flex-grow-1">
+                        <h4 class="text-primary font-weight-bold">Maheeso</h4>
+                        <span class="d-block fs-1 mb-3"></span>
+                        <p class="text-muted">Consulta personalizada para tus necesidades espirituales.</p>
+                    </div>
+                </div>
+            </div><!-- End Service 5 -->
+
+            <!-- Service 6 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                <div class="service-card bg-light text-center shadow rounded overflow-hidden d-flex flex-column">
+                    <div class="pic mb-4"><img src="assets/img/servicio.jpeg" class="img-fluid w-100 h-100 object-cover" alt="Pregunta por el tuyo"></div>
+                    <div class="service-info p-4 flex-grow-1">
+                        <h4 class="text-primary font-weight-bold">Pregunta por el tuyo</h4>
+                        <span class="d-block fs-1 mb-3">🔮</span>
+                        <p class="text-muted">Resultados rápidos y efectivos para tu tranquilidad.</p>
+                    </div>
+                </div>
+            </div><!-- End Service 6 -->
+
+        </div>
+    </div>
+
+</section>
+<!-- End Team Section -->
+
+<!-- End Team Section -->
+
+
+        </section><!-- /Team Section -->
+        
+
+        
+        
+        <!-- Seccion magia blanca -->
+        <section id="trabajos" class="trabajos section" style="background-color: #f5f5f5; padding: 60px 0;">
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Estos son algunos de nuestros trabajos</h2>
+                <div><span>Pregunta por</span> <span class="description-title">el tuyo</span>
+                </div>
+            </div><!-- End Section Title -->
+            <div class="container">
+                <div class="row align-items-center mb-5">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <img src="assets/img/purificacion.jpg" alt="White Magic Service 1"
+                            class="img-fluid rounded-lg shadow-lg">
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <h2 class="mb-4" style="color: #2e4053;">Rituales de Purificación</h2>
+                        <p class="lead">Nuestros rituales de purificación te ayudarán a limpiar tu aura y eliminar las
+                            energías negativas que te rodean. Experimenta una renovación espiritual profunda.</p>
+                        <ul class="list-unstyled mt-4">
+                            <li><i class="bi bi-check-circle-fill text-primary mr-2"></i> Limpieza energética completa
+                            </li>
+                            <li><i class="bi bi-check-circle-fill text-primary mr-2"></i> Protección contra influencias
+                                negativas</li>
+                            <li><i class="bi bi-check-circle-fill text-primary mr-2"></i> Aumento de la vibración
+                                espiritual</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row align-items-center mt-5">
+                    <div class="col-lg-6 order-lg-2" data-aos="fade-left">
+                        <img src="assets/img/prosperidad.jpg" alt="White Magic Service 2"
+                            class="img-fluid rounded-lg shadow-lg">
+                    </div>
+                    <div class="col-lg-6 order-lg-1" data-aos="fade-right">
+                        <h2 class="mb-4" style="color: #2e4053;">Hechizos de Prosperidad</h2>
+                        <p class="lead">Nuestros hechizos de prosperidad están diseñados para atraer abundancia y éxito
+                            en todas las áreas de tu vida. Desbloquea tu potencial y alcanza tus metas.</p>
+                        <ul class="list-unstyled mt-4">
+                            <li><i class="bi bi-check-circle-fill text-primary mr-2"></i> Atracción de oportunidades
+                                financieras</li>
+                            <li><i class="bi bi-check-circle-fill text-primary mr-2"></i> Mejora en la carrera
+                                profesional</li>
+                            <li><i class="bi bi-check-circle-fill text-primary mr-2"></i> Aumento de la confianza y
+                                determinación</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row align-items-center mt-5">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <img src="assets/img/sanacion.png" alt="White Magic Service 3"
+                            class="img-fluid rounded-lg shadow-lg">
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <h2 class="mb-4" style="color: #2e4053;">Sanación Espiritual</h2>
+                        <p class="lead">Nuestras sesiones de sanación espiritual te ayudarán a restaurar el equilibrio
+                            en tu vida, sanar heridas emocionales y fortalecer tu conexión con el universo.</p>
+                        <ul class="list-unstyled mt-4">
+                            <li><i class="bi bi-check-circle-fill text-primary mr-2"></i> Terapia de chakras</li>
+                            <li><i class="bi bi-check-circle-fill text-primary mr-2"></i> Liberación de traumas pasados
+                            </li>
+                            <li><i class="bi bi-check-circle-fill text-primary mr-2"></i> Alineación de cuerpo, mente y
+                                espíritu</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row align-items-center mt-5">
+                    <div class="col-lg-6 order-lg-2" data-aos="fade-left">
+                        <img src="assets/img/amor.jpg" alt="White Magic Service 4"
+                            class="img-fluid rounded-lg shadow-lg">
+                    </div>
+                    <div class="col-lg-6 order-lg-1" data-aos="fade-right">
+                        <h2 class="mb-4" style="color: #2e4053;">Rituales de Amor</h2>
+                        <p class="lead">Nuestros rituales de amor están diseñados para atraer el amor verdadero,
+                            fortalecer relaciones existentes y sanar heridas del corazón.</p>
+                        <ul class="list-unstyled mt-4">
+                            <li><i class="bi bi-check-circle-fill text-primary mr-2"></i> Atracción de pareja ideal</li>
+                            <li><i class="bi bi-check-circle-fill text-primary mr-2"></i> Reconciliación y armonía en la
+                                pareja</li>
+                            <li><i class="bi bi-check-circle-fill text-primary mr-2"></i> Sanación de heridas
+                                emocionales pasadas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row align-items-center mt-5">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <img src="assets/img/proteccion.jpg" alt="White Magic Service 5"
+                            class="img-fluid rounded-lg shadow-lg">
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <h2 class="mb-4" style="color: #2e4053;">Protección Mágica</h2>
+                        <p class="lead">Nuestros servicios de protección mágica te brindarán las herramientas y rituales
+                            necesarios para crear un escudo energético contra influencias negativas y entidades no
+                            deseadas.</p>
+                        <ul class="list-unstyled mt-4">
+                            <li><i class="bi bi-check-circle-fill text-primary mr-2"></i> Creación de amuletos
+                                personalizados</li>
+                            <li><i class="bi bi-check-circle-fill text-primary mr-2"></i> Rituales de protección para el
+                                hogar y negocio</li>
+                            <li><i class="bi bi-check-circle-fill text-primary mr-2"></i> Limpieza y sellado de aura
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row align-items-center mt-5">
+                    <div class="col-lg-6 order-lg-2" data-aos="fade-left">
+                        <img src="assets/img/meditacion.jpg" alt="White Magic Service 6"
+                            class="img-fluid rounded-lg shadow-lg">
+                    </div>
+                    <div class="col-lg-6 order-lg-1" data-aos="fade-right">
+                        <h2 class="mb-4" style="color: #2e4053;">Meditación Guiada</h2>
+                        <p class="lead">Nuestras sesiones de meditación guiada te ayudarán a alcanzar estados elevados
+                            de conciencia, reducir el estrés y conectar con tu yo superior.</p>
+                        <ul class="list-unstyled mt-4">
+                            <li><i class="bi bi-check-circle-fill text-primary mr-2"></i> Técnicas de respiración y
+                                relajación</li>
+                            <li><i class="bi bi-check-circle-fill text-primary mr-2"></i> Visualizaciones para
+                                manifestación</li>
+                            <li><i class="bi bi-check-circle-fill text-primary mr-2"></i> Conexión con guías
+                                espirituales</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="member">
+                        <div class="pic">
+                            <video width="100%" height="auto" controls>
+                                <source src="icons/video1.mp4" type="video/mp4">
+                                Tu navegador no soporta la reproducción de videos.
+                            </video>
+                        </div>
+                        <div class="member-info">
+                            <h4>Descubre nuestros servicios de amor</h4>
+                            <p>Te ayudamos a encontrar la paz y el amor que tanto deseas. Conoce todo lo que podemos
+                                hacer por ti.</p>
+                        </div>
+                    </div>
+                </div><!-- End Video -->
+            </div>
+        </section>
+        <section id="pablo-wiccano" class="pablo-section">
+            <div class="container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-lg-6">
+                        <!-- Imagen de Pablo Wiccano -->
+                        <img src="assets/img/pablo-wiccano.jpg" alt="Pablo Wiccano" class="img-fluid pablo-img mb-4" />
+                    </div>
+                    <div class="col-lg-6">
+                        <!-- Información sobre Pablo Wiccano -->
+                        <h2 class="pablo-title">Pablo Wiccano - Líder Espiritual</h2>
+                        <p class="pablo-info">
+                            Pablo Wiccano es un experto en esoterismo con más de 15 años de experiencia en el estudio y la práctica de las artes místicas. Su enfoque se basa en la conexión profunda con las energías universales, el tarot, la astrología y el poder curativo de los cristales. 
+                            <br /><br />
+                            A través de su trabajo, ayuda a las personas a encontrar equilibrio en sus vidas, resolver problemas emocionales, y descubrir su propósito en el mundo. Su estilo de trabajo es personalizado, brindando orientación basada en la sabiduría ancestral y moderna.
+                            <br /><br />
+                            "Mi misión es guiar a quienes buscan respuestas y conexión espiritual, para que puedan despertar el potencial que tienen dentro y transformar sus vidas."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="Nosotros" class="trabajo-section">
+            <div class="container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-lg-6">
+                        <!-- Título de la sección -->
+                        <h2 class="trabajo-title">Cómo Trabajamos con La Muerte Blanca</h2>
+                        <p class="trabajo-info">
+                            En nuestro enfoque espiritual, trabajamos en profunda conexión con La Muerte Blanca, la patrona que guía nuestros pasos en el mundo esotérico. A través de su sabiduría, ofrecemos consejos que ayudan a las personas a superar obstáculos en su camino y a encontrar paz en su vida.
+                            <br><br>
+                            La Muerte Blanca, como guía espiritual, nos enseña la importancia de la transformación y el renacimiento. En cada consulta, buscamos sanar el alma y abrir puertas hacia nuevas oportunidades. Este es un proceso profundo y místico, respaldado por las energías cósmicas y el universo.
+                        </p>
+                    </div>
+                </div>
+        
+                <div class="row justify-content-center">
+                    <div class="col-lg-5">
+                        <!-- Imagen de La Muerte Blanca -->
+                        <img src="assets/img/mb1.jpg" alt="La Muerte Blanca" class="img-fluid trabajo-img">
+                    </div>
+                    <div class="col-lg-5">
+                        <!-- Imagen representativa de la patrona -->
+                        <img src="assets/img/mb2.jpg" alt="La Muerte Blanca" class="img-fluid trabajo-img">
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        
+        
+
+
+
+    </main>
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- Script para la animación de humo -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('#navmenu ul li a');
+            const smokeContainer = document.getElementById('smoke-container');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', createSmoke);
+            });
+
+            function createSmoke(e) {
+                e.preventDefault(); // Previene la navegación por defecto
+
+                // Generar múltiples partículas en posiciones aleatorias
+                for (let i = 0; i < 150; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('smoke-particle');
+
+                    const size = Math.random() * 200 + 100; // Tamaño aleatorio entre 100px y 300px
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+
+                    const startX = Math.random() * window.innerWidth; // Posición horizontal aleatoria
+                    const startY = Math.random() * window.innerHeight; // Posición vertical aleatoria
+
+                    const destinationY = -Math.random() * window.innerHeight; // Movimiento hacia arriba
+                    const destinationX = startX + (Math.random() * 200 - 100); // Movimiento leve a los lados
+
+                    // Posición inicial aleatoria
+                    particle.style.left = `${startX}px`;
+                    particle.style.top = `${startY}px`;
+
+                    smokeContainer.appendChild(particle);
+
+                    // Animación usando Anime.js
+                    anime({
+                        targets: particle,
+                        left: destinationX,
+                        top: destinationY,
+                        opacity: [0, 0.3, 0], // Aparece y desaparece
+                        scale: [1, 5],
+                        rotate: Math.random() * 360, // Rotación aleatoria
+                        easing: 'easeOutCubic',
+                        duration: 5000 + Math.random() * 2000, // Duración entre 5 y 7 segundos
+                        complete: function () {
+                            smokeContainer.removeChild(particle); // Eliminar partícula cuando termine la animación
+                        }
+                    });
+                }
+
+                // Navegar después de un pequeño retraso
+                setTimeout(() => {
+                    window.location.href = e.target.href;
+                }, 0); // Ajusta el tiempo de retraso si es necesario
+            }
+        });
+        const toggle = document.querySelector('.mobile-nav-toggle');
+        const nav = document.querySelector('.navmenu ul');
+
+        toggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
+  
+</body>
+
+</html>
